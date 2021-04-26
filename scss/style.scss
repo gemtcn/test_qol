@@ -1,0 +1,11 @@
+// Import css from node_modules
+
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~slick-carousel/slick/slick-theme.scss";
+@import "~slick-carousel/slick/slick.scss";
+
+// Import css
+@import "./variables";
+@import "./reset";
+@import "./global";
+@import "./components";    

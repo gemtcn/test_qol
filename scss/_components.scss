@@ -1,0 +1,362 @@
+// Header
+.header-main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 87px;
+  height: 1000px;
+  background-color: #fcfcfc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 33px;
+  z-index: 999;
+  @media screen and (max-width: $tablet) {
+    width: 100vw;
+    height: 82px;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+  }
+  .open-menu {
+    border: 0;
+    background-color: transparent;
+    outline: none;
+    padding: 0;
+    flex-direction: column;
+    @media screen and (max-width: $tablet) {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      @include translate(0, -50%);
+    }
+    &.show {
+      img {
+        @include rotate(45deg);
+      }
+      .open {
+        display: none;
+      }
+      .close {
+        display: block;
+      }
+    }
+    &:hover {
+      img {
+        // @include scale(0.95);
+      }
+    }
+    span {
+      @include font(10px, 500, 15px);
+      &.close {
+        display: none;
+      }
+    }
+    img {
+      @include transition;
+    }
+  }
+  &--logo {
+    margin: 87px 0 36px;
+    @media screen and (max-width: $tablet) {
+      margin: 0;
+      @include rotate(-90deg);
+    }
+  }
+  &--slogan {
+    @include font(10px, 500, 19px);
+    span {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+    }
+  }
+  &--menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 998;
+    background-color: #fcfcfc;
+    padding-top: 96px;
+    @include transition;
+    @include scale(0);
+    opacity: 0;
+    @media screen and (max-width: $tablet-large) {
+      padding-left: 120px;
+    }
+    @media screen and (max-width: $tablet) {
+      padding-left: 0;
+    }
+    @media screen and (max-width: $mobile) {
+      padding-top: 184px;
+    }
+    &.show {
+      @include scale(1);
+      opacity: 1;
+    }
+    .list-category {
+      margin: 0 0 102px;
+      li {
+        margin: 0 0 22px;
+        &:last-of-type {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+// Slider main
+.slider-main {
+  height: 1000px;
+  &--item {
+    height: 1000px;
+    overflow: hidden;
+    position: relative;
+    .thumbnail {
+      background-color: $color-gray;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .content {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: $color-white-primary;
+      padding: 48px 37px;
+      max-width: 880px;
+      @media screen and (max-width: $tablet) {
+        padding: 17px 19px;
+        bottom: 60px;
+      }
+    }
+    .label {
+      @include font(15px, 700, 21px);
+      margin: 0 0 9px;
+    }
+    .title {
+      @include font(30px, 700, 45px);
+      @include limitedText(2);
+      @media screen and (max-width: $mobile) {
+        font-size: 22px;
+        line-height: 36px;
+        @include limitedText(4);
+        margin: 0 0 13px;
+      }
+    }
+  }
+}
+
+.item-detail {
+  li {
+    @include font(10px, 500, 17px);
+    margin: 0 18px 0 0;
+    @media screen and (max-width: $mobile) {
+      font-size: 12px;
+      line-height: 17px;
+    }
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+}
+
+// Lisst item
+.list-item {
+  padding: 125px 0 0;
+  &.subpage {
+    padding-bottom: 120px;
+  }
+  @media screen and (max-width: $mobile) {
+    padding: 103px 0 0;
+  }
+  .row {
+    margin-top: -70px;
+    margin-bottom: 40px;
+    @media screen and (max-width: $mobile) {
+      margin-top: -48px;
+      margin-bottom: 74px;
+    }
+    > div {
+      margin-top: 70px;
+      @media screen and (max-width: $mobile) {
+        margin-top: 48px;
+      }
+    }
+  }
+}
+
+// QOL items
+.qol-item {
+  background-color: $color-white-primary;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  .thumbnail {
+    background-color: $color-gray;
+    height: 326px;
+    @media screen and (max-width: $mobile) {
+      height: 213px;
+    }
+  }
+  .content {
+    background-color: $color-white-primary;
+    max-width: 447px;
+    width: 100%;
+    padding: 25px 0 0 25px;
+    margin-top: -83px;
+    align-self: flex-end;
+    @media screen and (max-width: $mobile) {
+      max-width: 340px;
+      padding: 10px 0 0 9px;
+      margin-top: -50px;
+    }
+    .title {
+      @include font(18px, 800, 35px);
+      margin: 0 0 12px;
+      @include limitedText(3);
+      @media screen and (max-width: $mobile) {
+        font-size: 16px;
+        line-height: 26px;
+        margin: 0 0 8px;
+      }
+    }
+  }
+}
+
+// Read more button
+.read-more--btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20.5px 24px;
+  border: 1px solid $color-text;
+  img {
+    margin: 0 13.6px 0 0;
+  }
+  span {
+    display: inline-block;
+    @include font(20px, 500, 22px);
+  }
+}
+
+// Tags list
+.tags-list {
+  background-color: #fcfcfc;
+  padding: 118px 0 61px;
+  margin-top: 125px;
+  &.subpage {
+    margin: 0;
+    padding: 52px 0 61px;
+  }
+  @media screen and (max-width: $mobile) {
+    padding: 52px 0 45px;
+  }
+  &--header {
+    padding: 0;
+    margin: 0 0 102px;
+  }
+  h2 {
+    @include font(20px, 700, 29px);
+    margin-bottom: 37px;
+  }
+  &--item {
+    background-color: $color-white-primary;
+    @include font(20px, 500, 29px);
+    padding: 10px 27px;
+    display: block;
+    border-radius: 5px;
+  }
+  ul {
+    margin-top: -24px;
+  }
+  li {
+    margin: 24px 18px 0 0;
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+}
+
+// Footer
+.footer-main {
+  padding: 90px 0 102px;
+  @media screen and (max-width: $mobile) {
+    padding: 30px 0 65px;
+  }
+  .single-menu {
+    margin: 0 0 47px;
+  }
+  p {
+    @include font(10px, 400, 15px);
+  }
+}
+
+.single-menu {
+  li {
+    margin: 0 20px 0 0;
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+  a {
+    display: block;
+    @include font(13px, 400, 19px);
+  }
+}
+
+// Subpage header
+.subpage-header {
+  padding: 212px 0 173px;
+  background-color: #FCFCFC;
+  @media screen and (max-width: $mobile) {
+    padding: 150px 0 100px;
+  }
+  .title {
+    @include font(30px, 700, 45px);
+    @media screen and (max-width: $mobile) {
+      font-size: 25px;
+    }
+  }
+  .description {
+    margin: 18px 0 0;
+    @include font(12px, 400, 24px);
+  }
+}
+
+// Subpage content
+.subpage-content {
+  padding: 102px 0 121px;
+  > .container {
+    margin-top: -101px;
+  }
+  &--detail {
+    margin: 101px 0 0;
+    h2 {
+      @include font(25px, 700, 36px);
+      margin: 0 0 33px;
+    }
+    h3 {
+      @include font(20px, 700, 29px);
+    }
+    h4,
+    h5 {
+      @include font(18px, 700, 26px);
+    }
+    p {
+      line-height: 41px;
+    }
+    .thumbnail {
+      height: 410px;
+      background-color: $color-gray;
+      margin: 0 0 20px;
+    }
+    .caption {
+      @include font(10px, 400, 16px);
+    }
+  }
+}

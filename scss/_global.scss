@@ -1,0 +1,143 @@
+// Font
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@200;400;500;700&display=swap");
+
+$font-primary: "Noto Sans JP", sans-serif;
+
+// Body
+body {
+  font-family: $font-primary;
+  @include font(15px, 400, 26px);
+  color: $color-text;
+  background-color: $color-white-primary;
+  overflow-x: hidden;
+  letter-spacing: 2.3px;
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+.container {
+  padding: 0 15px;
+  @media screen and (min-width: 1200px) {
+    max-width: 1140px;
+  }
+}
+
+.row {
+  margin: 0 -15px;
+}
+
+div[class^="col-"] {
+  padding: 0 15px;
+}
+
+img {
+  max-width: 100%;
+}
+
+input[type="checkbox"] {
+  position: relative;
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: -50%;
+    @include translate(0, -50%);
+    content: "";
+    width: 19px;
+    height: 19px;
+    border: 1px solid #707070;
+    background-color: $color-white-primary;
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    left: 1px;
+    top: -2px;
+    width: 7px;
+    height: 13px;
+    border: solid $color-black-primary;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    display: none;
+  }
+  &:checked {
+    &:after {
+      display: block;
+    }
+  }
+}
+
+.slick-arrow {
+  position: absolute;
+  bottom: 30px;
+  top: auto;
+  width: 17px;
+  height: 15px;
+  z-index: 100;
+  transform: none;
+  @media screen and (max-width: $tablet-large) {
+    bottom: 270px;
+  }
+  @media screen and (max-width: $mobile) {
+    bottom: 317px;
+  }
+  &:before {
+    display: none;
+  }
+  &.slick-prev {
+    background: url("../dist/images/icon-arrow--left.svg") no-repeat center;
+    left: 48.5%;
+    background-size: contain;
+    @media screen and (max-width: $tablet-large) {
+      left: auto;
+      right: 51px;
+    }
+  }
+  &.slick-next {
+    background: url("../dist/images/icon-arrow--right.svg") no-repeat center;
+    right: 48.5%;
+    background-size: contain;
+    @media screen and (max-width: $tablet-large) {
+      right: 18px;
+    }
+  }
+}
+
+// Section header
+.section-header {
+  margin: 0 0 55px;
+  &.subpage {
+    margin: 0 0 38px;
+  }
+  @media screen and (max-width: $mobile) {
+    margin: 0 0 36px;
+  }
+  .title {
+    margin: 0 0 17px;
+  }
+  .description {
+    @include font(18px, 700, 35px);
+    @media screen and (max-width: $mobile) {
+      font-size: 15px;
+      line-height: 24px;
+    }
+  }
+}
+
+.text-has--label {
+  @include font(40px, 700, 1);
+  span {
+    display: inline-block;
+    margin: 0 0 0 20px;
+    @include font(15px, 700, 1);
+  }
+}
+
+// Hr tag
+hr {
+  background: #E5E5E5;
+  margin: 80px 0 0;
+  opacity: 1;
+}
